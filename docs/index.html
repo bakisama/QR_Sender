@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#111418">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>QR Sender</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.svg">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>QR Sender</h1>
+    <p class="sub">Scan a QR code, then share its link.</p>
+  </header>
+
+  <main>
+    <section id="scanner" class="card">
+      <div class="viewport">
+        <video id="video" playsinline muted autoplay></video>
+        <div class="frame" aria-hidden="true"></div>
+        <div id="cameraMsg" class="camera-msg">Tap “Start camera” to scan</div>
+      </div>
+      <div class="row">
+        <button id="startBtn" class="btn primary">Start camera</button>
+        <label class="btn" for="fileInput">Scan from photo</label>
+        <input id="fileInput" type="file" accept="image/*" hidden>
+      </div>
+    </section>
+
+    <section id="result" class="card" hidden>
+      <div class="label">Scanned</div>
+      <a id="resultLink" class="result-text" target="_blank" rel="noopener noreferrer"></a>
+      <div id="resultText" class="result-text" hidden></div>
+      <button id="shareBtn" class="btn primary big">Share link</button>
+      <div class="row">
+        <button id="copyBtn" class="btn">Copy</button>
+        <a id="openBtn" class="btn" target="_blank" rel="noopener noreferrer">Open</a>
+        <button id="againBtn" class="btn">Scan again</button>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <canvas id="canvas" hidden></canvas>
+  <script src="vendor/jsQR.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

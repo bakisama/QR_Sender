@@ -12,6 +12,6 @@ A mobile web page that scans a QR code with your phone's camera and lets you sha
 - You can add it to your home screen and use it like an app.
 
 ## Deployment
-The app is the static files in the repo root (`index.html`, `app.js`, `style.css`, `vendor/`).
+The app is in the `docs/` folder. In **Settings → Pages**, choose **Deploy from a branch**, then pick this branch and the `/docs` folder. Every push publishes automatically.
 
-GitHub Pages is set to **Deploy from a branch** with the `/ (root)` folder, so every push publishes automatically. The empty `.nojekyll` file tells Pages to serve the files as they are, without running Jekyll.
+If Pages is set to the `/ (root)` folder instead, the root `index.html` redirects to `docs/`, so the app still loads.
